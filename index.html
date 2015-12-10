@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-    <title>Current Status: ?</title>
-  </head>
-  <body>
-    <h1>Current Status: In Development</h1>
-  </body>
-</html>
+---
+layout: default
+---
+
+<div id="app">
+  <label for="current_status">Current status:</label>
+  <input v-model="current_status" type="text" id="current_status">
+  
+  <div v-for="status in statuses | filterBy current_status">[[ status ]]</div>
+</div>
