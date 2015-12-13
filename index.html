@@ -2,9 +2,13 @@
 layout: default
 ---
 
-<div id="app">
-  <label for="current_status">Current status:</label>
-  <input v-model="current_status" type="text" id="current_status">
-  
-  <div v-for="status in statuses | filterBy current_status">[[ status ]]</div>
+<div id="app" class="app">
+
+  <div class="entry">
+    <label for="current_status">Current status:</label>
+    <input v-model="current_status" type="text" id="current_status" class="input  input--text">
+  </div>
+
+  <div v-for="status in statuses | filterBy current_status" class="status">[[ status ]]</div>
+
 </div>

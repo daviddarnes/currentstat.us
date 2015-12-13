@@ -1,4 +1,10 @@
 [
   "awake",
-  "busy"
+  "busy",
+  "upset",
+  "tired",
+  "excited",
+  "bored",
+  "wistful",
+  "grumpy"
 ]

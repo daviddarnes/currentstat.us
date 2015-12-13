@@ -1,0 +1,44 @@
+---
+layout: none
+---
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: #111;
+  color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  text-transform: uppercase;
+  .status,
+  .entry {
+    min-width: 33.33%;
+    height: 33.33vh;
+  }
+  .entry {
+    position: absolute;
+    top: 33.33vh;
+    left: 33.33%;
+  }
+  .status:nth-of-type(6) {
+    margin-left: 33.33%;
+  }
+  .status {
+    background: #777;
+    border: 1px solid #111;
+  }
+}
+
+.input {
+  &--text {
+    width: 100%;
+  }
+}
