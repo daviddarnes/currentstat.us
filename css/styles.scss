@@ -20,8 +20,11 @@ body {
   text-transform: uppercase;
   .status,
   .entry {
-    min-width: 33.33%;
+    width: 33.33%;
     height: 33.33vh;
+    padding-top: 12vh;
+    padding-bottom: 12vh;
+    font-size: 22px;
   }
   .entry {
     position: absolute;
@@ -32,13 +35,29 @@ body {
     margin-left: 33.33%;
   }
   .status {
-    background: #777;
+    background: #ccb1eb;
     border: 1px solid #111;
+    padding-top: 15vh;
+    padding-bottom: 15vh;
+    &:hover {
+      background: darken(#ccb1eb, 10%);
+    }
   }
 }
 
 .input {
   &--text {
-    width: 100%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    text-align: center;
+    outline: none;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    text-transform: inherit;
+    background: inherit;
+    border: none;
+    border-bottom: 1px solid #777;
   }
 }
