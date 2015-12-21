@@ -9,6 +9,15 @@ layout: default
     <input v-model="current_status" type="text" id="current_status" class="input  input--text" autofocus>
   </div>
 
-  <div v-for="status in statuses | filterBy current_status" class="status">[[ status ]]</div>
+  <status-box
+    v-for="status in statuses | filterBy current_status in 'name'"
+    :status="status">
+  </status-box>
 
 </div>
+
+<script type="vue/template" id="status-box">
+  <div class="status">
+    [[ status.name ]]
+  </div>
+</script>

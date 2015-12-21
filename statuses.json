@@ -1,10 +1,26 @@
 [
-  "awake",
-  "busy",
-  "upset",
-  "tired",
-  "excited",
-  "bored",
-  "wistful",
-  "grumpy"
+  {
+    "name": "awake"
+  },
+  {
+    "name": "busy"
+  },
+  {
+    "name": "upset"
+  },
+  {
+    "name": "tired"
+  },
+  {
+    "name": "excited"
+  },
+  {
+    "name": "bored"
+  },
+  {
+    "name": "wistful"
+  },
+  {
+    "name": "wistful"
+  }
 ]
