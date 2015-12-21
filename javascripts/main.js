@@ -4,7 +4,12 @@
 
   var status_box = {
     template: '#status-box',
-    props: ['status']
+    props: ['status'],
+    methods: {
+      open_status: function() {
+        window.location = this.status.image;
+      }
+    }
   };
 
   new Vue({
