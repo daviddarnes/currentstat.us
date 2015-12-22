@@ -1,0 +1,10 @@
+# Excluded files
+exclude:
+- README.md
+- LICENSE
+- CNAME
+
+# Site info
+url: "http://currentstat.us"
+title: "Current Status"
+description: "What's up?"
