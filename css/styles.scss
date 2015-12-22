@@ -2,84 +2,107 @@
 layout: none
 ---
 
-$linkcolor: #2afd9c;
+// Variables
+$linkcolor: #00EF81;
 $statuscolor: #FF36D4;
+$screen--small: 640px;
 
+// General typography and reset
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
   text-rendering: geometricPrecision;
   background-color: #111;
   color: #fff;
 }
 
+// Box sizing reset
 * {
   box-sizing: border-box;
 }
 
+// Links
 a {
   color: $linkcolor;
   text-decoration: none;
 }
 
+// Share icons
 svg {
   width: 30px;
   height: 30px;
   fill: #fff;
 }
 
+.share {
+  padding: 4px;
+}
+
+// App contianer
 .app {
   display: flex;
   flex-wrap: wrap;
-  text-align: center;
-  text-transform: uppercase;
-  .status,
-  .entry {
-    width: 33.33%;
-    height: 33.33vh;
-    padding-top: 12vh;
-    padding-bottom: 12vh;
-    font-size: 22px;
-    background-size: cover;
-    background-position: center;
-  }
-  .entry {
-    position: absolute;
-    top: 33.33vh;
-    left: 33.33%;
-  }
-  .status:nth-of-type(5) {
+}
+
+// Statuses
+.status {
+  background-color: $statuscolor;
+  border: 1px solid #111;
+  padding-top: 13vh;
+  padding-bottom: 15vh;
+  cursor: pointer;
+  position: relative;
+  &:nth-of-type(5) {
     margin-left: 33.33%;
+    @media (max-width: $screen--small) {
+      margin-left: 0;
+    }
   }
-  .status {
-    background-color: $statuscolor;
-    border: 1px solid #111;
-    padding-top: 13vh;
-    padding-bottom: 15vh;
-    cursor: pointer;
+  &:hover {
+    background-blend-mode: multiply;
+  }
+}
+
+// Statuses and search box
+.status,
+.search {
+  width: 33.33%;
+  height: 33.33vh;
+  padding-top: 12vh;
+  padding-bottom: 12vh;
+  font-size: 22px;
+  background-size: cover;
+  background-position: center;
+  @media (max-width: $screen--small) {
+    width: 100%;
+  }
+}
+
+// Search box
+.search {
+  position: absolute;
+  top: 33.33vh;
+  left: 33.33%;
+  @media (max-width: $screen--small) {
     position: relative;
-    &:hover {
-      background-blend-mode: multiply;
-    }
-    .share {
-      padding: 4px;
-    }
+    top: 0;
+    left: 0;
   }
 }
 
 .input {
-  &--text {
-    width: 50%;
-    margin-left: 25%;
-    margin-right: 25%;
-    text-align: center;
-    outline: none;
-    color: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    text-transform: inherit;
-    background: inherit;
-    border: none;
-    border-bottom: 1px solid #777;
-  }
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  text-transform: inherit;
+  background: inherit;
+  border: none;
+  border-bottom: 1px solid #777;
 }
