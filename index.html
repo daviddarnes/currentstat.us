@@ -21,18 +21,18 @@ share:
 
 <script type="vue/template" id="status-box">
   <article class="status" @click="open_status" style="background-image:url([[ status.image ]])">
-    [[ status.name ]]
     <aside class="share">
-      <a href="{{ page.share.twitter }}[[ status.image ]]">
+      <a class="twitter" href="{{ page.share.twitter }}[[ status.image ]]">
         <svg viewBox="0 0 20 20">
           <use xlink:href="#twitter"></use>
          </svg>
       </a>
-      <a href="{{ page.share.facebook }}[[ status.image ]]">
+      <a class="facebook" href="{{ page.share.facebook }}[[ status.image ]]">
         <svg viewBox="0 0 20 20">
           <use xlink:href="#facebook"></use>
         </svg>
       </a>
     </aside>
+    <h2 class="name">[[ status.name ]]</h2>
   </article>
 </script>
