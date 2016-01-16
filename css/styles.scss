@@ -66,6 +66,7 @@ svg {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  z-index: 1;
 
   // Move the 5th from behind the search box
   &:nth-of-type(5) {
@@ -121,7 +122,8 @@ svg {
 
 // Statuses and search box
 .status,
-.search {
+.search,
+.footer {
   width: 33.33%;
   height: 33.33vh;
   font-size: 22px;
@@ -133,7 +135,8 @@ svg {
 }
 
 // Search box
-.search {
+.search,
+.footer {
   position: absolute;
   top: 33.33vh;
   left: 33.33%;
@@ -144,6 +147,15 @@ svg {
     top: 0;
     left: 0;
   }
+}
+
+// Footer credits
+.footer {
+  top: auto;
+  bottom: 0;
+  z-index: 0;
+  padding-top: 7vh;
+  font-size: 14px;
 }
 
 // Search input
