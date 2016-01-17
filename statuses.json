@@ -1,0 +1,34 @@
+[
+  {
+    "name": "awake",
+    "image": "https://media.giphy.com/media/WLGECpb3Hv9Go/giphy.gif"
+  },
+  {
+    "name": "busy",
+    "image": "https://media.giphy.com/media/bAplZhiLAsNnG/giphy.gif"
+  },
+  {
+    "name": "upset",
+    "image": "https://media.giphy.com/media/dYM1bHuaLiquQ/giphy.gif"
+  },
+  {
+    "name": "tired",
+    "image": "https://media.giphy.com/media/gZ1XKnEzfI3lK/giphy.gif"
+  },
+  {
+    "name": "excited",
+    "image": "https://media.giphy.com/media/YJDpfht5PU5i0/giphy.gif"
+  },
+  {
+    "name": "bored",
+    "image": "https://media.giphy.com/media/YYD3fLEOdcOv6/giphy.gif"
+  },
+  {
+    "name": "regret",
+    "image": "https://media.giphy.com/media/UhtdWhktr0IjC/giphy.gif"
+  },
+  {
+    "name": "grumpy",
+    "image": "https://media.giphy.com/media/eUAozlvGTeNy/giphy.gif"
+  }
+]

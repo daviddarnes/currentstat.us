@@ -1,0 +1,175 @@
+---
+layout: none
+---
+
+// Variables
+$linkcolor: #00EF81;
+$statuscolor: #00EF81;
+$screen--small: 640px;
+
+// General typography and reset
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: geometricPrecision;
+  background-color: #111;
+  color: #fff;
+}
+
+// Box sizing reset
+* {
+  box-sizing: border-box;
+}
+
+// Links
+a {
+  color: $linkcolor;
+  text-decoration: none;
+}
+
+// Icons
+svg {
+  width: 50px;
+  height: 50px;
+  fill: #fff;
+  @media (max-width: $screen--small) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+// Sharing options
+.share {
+  padding: 4px;
+  @media (max-width: $screen--small) {
+    padding: 8px 10px;
+    a {
+      margin: 0 2px;
+    }
+  }
+}
+
+// App contianer
+.app {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// Statuses
+.status {
+  background-color: $statuscolor;
+  border: 1px solid #111;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+
+  // Move the 5th from behind the search box
+  &:nth-of-type(5) {
+    margin-left: 33.33%;
+    @media (max-width: $screen--small) {
+      margin-left: 0;
+    }
+  }
+
+  // Hide icons to transition them
+  a {
+    display: inline-block;
+    opacity: 0;
+    transition: .2s;
+    transform: translate(-10px, 0);
+  }
+
+  // Position facebook differently
+  .facebook {
+    transform: translate(10px, 0);
+  }
+
+  // Colourise gif, bring in icons on hover
+  &:hover {
+    background-blend-mode: multiply;
+    a {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+  // Reveal all on mobile
+  @media (max-width: $screen--small) {
+    justify-content: flex-end;
+    text-align: left;
+    .twitter,
+    .facebook {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+// Place status name in corner
+.name {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 16px;
+  padding: 8px 10px;
+  margin: 0;
+}
+
+// Statuses and search box
+.status,
+.search,
+.footer {
+  width: 33.33%;
+  height: 33.33vh;
+  font-size: 22px;
+  background-size: cover;
+  background-position: center;
+  @media (max-width: $screen--small) {
+    width: 100%;
+  }
+}
+
+// Search box
+.search,
+.footer {
+  position: absolute;
+  top: 33.33vh;
+  left: 33.33%;
+  padding-top: 12vh;
+  padding-bottom: 12vh;
+  @media (max-width: $screen--small) {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+}
+
+// Footer credits
+.footer {
+  top: auto;
+  bottom: 0;
+  z-index: 0;
+  padding-top: 7vh;
+  font-size: 14px;
+}
+
+// Search input
+.input {
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  text-align: center;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  text-transform: inherit;
+  background: inherit;
+  border: none;
+  border-bottom: 1px solid #777;
+}

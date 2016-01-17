@@ -1,0 +1,12 @@
+# Excluded files
+exclude:
+- README.md
+- LICENSE
+- CNAME
+- Gemfile
+- Gemfile.lock
+
+# Site info
+url: "http://currentstat.us"
+title: "Current Status"
+description: "What's up?"
