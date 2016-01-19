@@ -4,7 +4,7 @@
 </status-box>
 
 <script type="vue/template" id="status-box">
-  <article class="status" @click="open_status" style="background-image:url([[ status.image ]])">
+  <article class="status" style="background-image:url([[ status.image ]])">
     <aside class="share">
       <a class="twitter" href="{{ page.share.twitter }}[[ status.image ]]">
         <svg viewBox="0 0 20 20">
@@ -18,5 +18,6 @@
       </a>
     </aside>
     <h2 class="name">[[ status.name ]]</h2>
+    <a :href="status.image" class="status__link"></a>
   </article>
 </script>
