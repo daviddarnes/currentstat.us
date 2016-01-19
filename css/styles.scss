@@ -117,6 +117,7 @@ svg {
     height: 100%;
     z-index: 3;
     cursor: default;
+    background-color: $statuscolor;
 
     svg {
       position: relative;
