@@ -4,7 +4,9 @@
 </status-box>
 
 <script type="vue/template" id="status-box">
-  <article class="status" style="background-image:url([[ status.image ]])">
+  <article
+    class="status"
+    data-image="[[ status.image ]]">
     <aside class="share">
       <a class="twitter" href="{{ page.share.twitter }}[[ status.image ]]&via={{ site.twitter }}">
         <svg viewBox="0 0 20 20">

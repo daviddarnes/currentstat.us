@@ -4,7 +4,15 @@
 
   var status_box = {
     template: '#status-box',
-    props: ['status']
+    props: ['status'],
+    ready: function() {
+      var self = this;
+      var image = new Image();
+      image.onload = function() {
+        self.$el.style.backgroundImage = 'url('+ self.status.image +')';
+      };
+      image.src = this.status.image;
+    }
   };
 
   new Vue({
