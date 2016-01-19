@@ -109,6 +109,22 @@ svg {
     z-index: 1;
   }
 
+  &__loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    cursor: default;
+
+    svg {
+      position: relative;
+      top: 50%;
+      margin-top: -32px;
+    }
+  }
+
   // Reveal all on mobile
   @media (max-width: $screen--small) {
     justify-content: flex-end;
@@ -184,4 +200,24 @@ svg {
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #777;
+}
+
+// svg animation
+
+@keyframes colours {
+	0%   { fill: #ff0000; }
+	10%  { fill: #ff8000; }
+	20%  { fill: #ffff00; }
+	30%  { fill: #80ff00; }
+	40%  { fill: #00ff00; }
+	50%  { fill: #00ff80; }
+	60%  { fill: #00ffff; }
+	70%  { fill: #0080ff; }
+	80%  { fill: #0000ff; }
+	90%  { fill: #8000ff; }
+	100% { fill: #ff0080; }
+}
+
+#Label {
+  animation: colours .3s infinite;
 }

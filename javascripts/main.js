@@ -4,12 +4,18 @@
 
   var status_box = {
     template: '#status-box',
+    data: function() {
+      return {
+        loading: true
+      }
+    },
     props: ['status'],
     ready: function() {
       var self = this;
       var image = new Image();
       image.onload = function() {
         self.$el.style.backgroundImage = 'url('+ self.status.image +')';
+        self.loading = false;
       };
       image.src = this.status.image;
     }
