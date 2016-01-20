@@ -7,6 +7,10 @@
     props: ['status']
   };
 
+  Vue.filter('empty?', function (value) {
+    return !value.length;
+  });
+
   new Vue({
     el: '#app',
     data: {
