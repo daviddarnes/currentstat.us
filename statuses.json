@@ -1,5 +1,21 @@
 [
   {
+    "name": "frustrated",
+    "image": "https://media.giphy.com/media/YsMO3SEJiF0Ag/giphy.gif"
+  },
+  {
+    "name": "winning",
+    "image": "https://media.giphy.com/media/n9hFY6sdZ0HWo/giphy.gif"
+  },
+  {
+    "name": "annoyed",
+    "image": "https://media.giphy.com/media/3o85xpqCFmjfpQgVpK/giphy.gif"
+  },
+  {
+    "name": "sassy",
+    "image": "https://media.giphy.com/media/l0OWhacYLRCBJ0Adq/giphy.gif"
+  },
+  {
     "name": "idiot",
     "image": "https://media.giphy.com/media/3o85xnoIXebk3xYx4Q/giphy.gif"
   },
