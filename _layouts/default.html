@@ -11,10 +11,10 @@
     {{ content }}
 
     <script type="text/template" id="status">
-      {% include status.html %}
+      {% include status.ejs.html %}
     </script>
     <script type="text/plain" id="statuses">
-      {% include statuses.html %}
+      {% include statuses.json.html %}
     </script>
     <script src="javascripts/vendor/ejs.min.js"></script>
     <script src="javascripts/vendor/jquery-2.2.0.min.js"></script>
