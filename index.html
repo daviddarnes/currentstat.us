@@ -14,3 +14,14 @@ share:
   {% include footer.html %}
 
 </div>
+
+<script type="text/plain">
+  [
+    {% for post in site.posts %}
+    {
+      "name": "{{ post.name }}",
+      "image": "{{ post.image }}"
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+</script>
