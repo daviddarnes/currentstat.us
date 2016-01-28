@@ -1,23 +1,18 @@
-<status-box
-  v-for="status in statuses | filterBy current_status in 'name'"
-  :status="status">
-</status-box>
-
 <script type="vue/template" id="status-box">
-  <article class="status" style="background-image:url([[ status.image ]])">
+  <article class="status" style="background-image:url(<%= status.image %>)">
     <aside class="share">
-      <a class="twitter" href="{{ page.share.twitter }}[[ status.image ]]&via={{ site.twitter }}">
+      <a class="twitter" href="{{ page.share.twitter }}<%= status.image %>&via={{ site.twitter }}">
         <svg viewBox="0 0 20 20">
           <use xlink:href="#twitter"></use>
          </svg>
       </a>
-      <a class="facebook" href="{{ page.share.facebook }}[[ status.image ]]">
+      <a class="facebook" href="{{ page.share.facebook }}<%= status.image %>">
         <svg viewBox="0 0 20 20">
           <use xlink:href="#facebook"></use>
         </svg>
       </a>
     </aside>
-    <h2 class="name">[[ status.name ]]</h2>
-    <a :href="status.image" class="status__link"></a>
+    <h2 class="name"><%= status.name %></h2>
+    <a href="<%= status.image %>" class="status__link"></a>
   </article>
 </script>
