@@ -6,15 +6,9 @@ exclude:
 - Gemfile
 - Gemfile.lock
 
-gems: [jekyll-paginate]
-
 # Site info
 url: "http://currentstat.us"
 title: "Current Status"
 description: "What's up?"
 twitter: "CurrentStat"
 avatar: "https://currentstat.us/assets/favicons/mstile-310x310.png"
-
-# pagination
-paginate: 3
-paginate_path: "/gifs/:num/"
