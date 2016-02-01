@@ -61,8 +61,14 @@
       this.callback = callback;
       this.page = 0;
       this.loading = false;
-      this.per_page = 9;
+      this.per_page = 3;
     }
+
+    Pagination.prototype.initialize = function() {
+      this.per_page = 8;
+      this.load();
+      this.per_page = 3;
+    };
 
     Pagination.prototype.next_page = function() {
       // increase the page number and load new JSONs
@@ -77,7 +83,7 @@
       if (this.data.length > 0) {
 
         // chop the per page limit from the data and hand them to the callback
-        var statuses = this.data.splice(0, (this.per_page - 1));
+        var statuses = this.data.splice(0, (this.per_page));
         this.callback(statuses);
 
         this.loading = false;
@@ -104,7 +110,7 @@
     }
 
     StatusGrid.prototype.initialize = function() {
-      this.pagination.next_page();
+      this.pagination.initialize();
     };
 
     StatusGrid.prototype.events = function() {
