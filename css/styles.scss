@@ -54,7 +54,7 @@ svg {
 }
 
 // App contianer
-.app {
+.status-grid {
   display: flex;
   flex-wrap: wrap;
 }
@@ -199,6 +199,14 @@ svg {
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #777;
+}
+
+.pagination-loader {
+  height: 30px;
+  background: #000;
+  color: #FFF;
+  text-align: center;
+  line-height: 30px;
 }
 
 @keyframes colours {

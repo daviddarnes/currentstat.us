@@ -5,10 +5,11 @@ share:
   facebook: "https://www.facebook.com/sharer/sharer.php?u="
 ---
 
-<div id="app" class="app">
+<div class="app" data-app>
+  <div class="status-grid" data-status-grid>
+  </div>
+  <div class="pagination-loader">Loading...</div>
 
   {% include search.html %}
-
   {% include footer.html %}
-
 </div>
