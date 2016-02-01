@@ -1,7 +1,7 @@
 (function() {
 
   var bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-  var App, Pagination, StatusGrid, Status;
+  var App, Pagination, StatusGrid, Search, Status;
 
   Status = (function() {
     function Status(data) {
@@ -53,6 +53,26 @@
     };
 
     return Status;
+  })();
+
+  Search = (function() {
+    function Search($el) {
+      this.input_changed = bind(this.input_changed, this);
+
+      this.$el = $el;
+      this.$input = this.$el.find('input');
+      this.events();
+    }
+
+    Search.prototype.events = function() {
+      this.$input.on('keyup', this.input_changed);
+    };
+
+    Search.prototype.input_changed = function() {
+      console.log(this.$input.val())
+    };
+
+    return Search;
   })();
 
   Pagination = (function() {
@@ -163,6 +183,8 @@
       // create a new status grid
       this.status_grid = new StatusGrid(this.$el.find('[data-status-grid]'));
       this.status_grid.initialize();
+
+      this.search = new Search($('[data-search]'));
     }
 
     return App;
