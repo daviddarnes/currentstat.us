@@ -56,9 +56,9 @@
   })();
 
   Search = (function() {
-    function Search($el) {
+    function Search($el, statuses) {
       this.input_changed = bind(this.input_changed, this);
-
+      this.statuses = statuses;
       this.$el = $el;
       this.$input = this.$el.find('input');
       this.events();
@@ -69,7 +69,21 @@
     };
 
     Search.prototype.input_changed = function() {
-      console.log(this.$input.val())
+      var search_term = this.$input.val();
+      console.log( this.get_results(search_term) );
+    };
+
+    Search.prototype.get_results = function(term) {
+      var results = [];
+
+      this.statuses.forEach(function(status) {
+        var regex = new RegExp(status);
+        if (status.name.search(term) > -1) {
+          results.push(status.name);
+        }
+      });
+
+      return results;
     };
 
     return Search;
@@ -120,11 +134,17 @@
       // these functions are binded as they can be called out of this scope
       this.update = bind(this.update, this);
       this.render = bind(this.render, this);
+      this.reset = bind(this.reset, this);
 
       // the root element of the grid is set, a new Pagination instance
       // an array of statuses and events are setup
       this.$el = $el;
-      this.pagination = new Pagination(JSON.parse($('#statuses').html()), this.render);
+
+      var statuses = JSON.parse($('#statuses').html());
+
+      this.pagination = new Pagination(statuses.slice(0), this.render);
+      this.search = new Search($('[data-search]'), statuses.slice(0));
+
       this.statuses = [];
       this.events();
     }
@@ -183,8 +203,6 @@
       // create a new status grid
       this.status_grid = new StatusGrid(this.$el.find('[data-status-grid]'));
       this.status_grid.initialize();
-
-      this.search = new Search($('[data-search]'));
     }
 
     return App;
