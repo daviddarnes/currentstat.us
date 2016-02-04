@@ -1,7 +1,7 @@
 (function() {
 
   var bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
-  var App, Pagination, StatusGrid, Search, Status;
+  var App, StatusGrid, Search, Status;
 
   Status = (function() {
     function Status(data) {
@@ -27,7 +27,7 @@
       // this will check if the status is inside the viewport and not yet loaded
       // if so, it will then load the gif
       // thus if statuses are added outside of the viewport, images won't be loaded
-      if (this.inside_viewport() && !this.loaded) {
+      if (this.inside_viewport() && !this.loaded && this.$el.is(':visible')) {
         this.load();
       }
     };
@@ -90,46 +90,6 @@
     return Search;
   })();
 
-  Pagination = (function() {
-    function Pagination(data, callback) {
-      this.data = data;
-      this.callback = callback;
-      this.page = 0;
-      this.loading = false;
-      this.per_page = 3;
-    }
-
-    Pagination.prototype.initialize = function() {
-      this.per_page = 8;
-      this.load();
-      this.per_page = 3;
-    };
-
-    Pagination.prototype.next_page = function() {
-      // increase the page number and load new JSONs
-      this.page = this.page + 1;
-      this.load();
-    };
-
-    Pagination.prototype.load = function() {
-      // set loading to true so this isn't spammed
-      this.loading = true;
-
-      if (this.data.length > 0) {
-
-        // chop the per page limit from the data and hand them to the callback
-        var statuses = this.data.splice(0, (this.per_page));
-        this.callback(statuses);
-
-        this.loading = false;
-      } else {
-        $('.pagination-loader').text('no gifs left :(');
-      }
-    };
-
-    return Pagination;
-  })();
-
   StatusGrid = (function() {
     function StatusGrid($el) {
       // these functions are binded as they can be called out of this scope
@@ -144,16 +104,12 @@
 
       var statuses = JSON.parse($('#statuses').html());
 
-      this.pagination = new Pagination(statuses.slice(0), this.render);
       this.search = new Search($('[data-search]'), statuses.slice(0), this.filter);
 
       this.statuses = [];
       this.events();
+      this.render(statuses);
     }
-
-    StatusGrid.prototype.initialize = function() {
-      this.pagination.initialize();
-    };
 
     StatusGrid.prototype.events = function() {
       // when the window is scrolled, update all the statuses
@@ -166,6 +122,8 @@
       statuses.forEach(function(status) {
         $('.status[data-id="'+ status +'"]').show();
       });
+
+      this.update();
     };
 
     StatusGrid.prototype.render = function(statuses) {
@@ -187,18 +145,6 @@
       this.statuses.forEach(function(status) {
         status.update();
       });
-
-      // if we're not already loading new statuses, check to see if we can
-      if (!this.pagination.loading) {
-        // if the user has scrolled roughly to the bottom of the page
-        // load the next page
-        var scroll_position = $(window).scrollTop() + $(window).height();
-        var scroll_load_position = $(document).height() - 30; // magic number = height of .pagination-loader
-
-        if(scroll_position > scroll_load_position) {
-          this.pagination.next_page();
-        }
-      }
     };
 
     return StatusGrid;
@@ -212,7 +158,6 @@
 
       // create a new status grid
       this.status_grid = new StatusGrid(this.$el.find('[data-status-grid]'));
-      this.status_grid.initialize();
     }
 
     return App;
