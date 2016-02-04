@@ -56,8 +56,9 @@
   })();
 
   Search = (function() {
-    function Search($el, statuses) {
+    function Search($el, statuses, callback) {
       this.input_changed = bind(this.input_changed, this);
+      this.callback = callback;
       this.statuses = statuses;
       this.$el = $el;
       this.$input = this.$el.find('input');
@@ -70,7 +71,7 @@
 
     Search.prototype.input_changed = function() {
       var search_term = this.$input.val();
-      console.log( this.get_results(search_term) );
+      this.callback(this.get_results(search_term));
     };
 
     Search.prototype.get_results = function(term) {
@@ -132,6 +133,7 @@
   StatusGrid = (function() {
     function StatusGrid($el) {
       // these functions are binded as they can be called out of this scope
+      this.filter = bind(this.filter, this);
       this.update = bind(this.update, this);
       this.render = bind(this.render, this);
       this.reset = bind(this.reset, this);
@@ -143,7 +145,7 @@
       var statuses = JSON.parse($('#statuses').html());
 
       this.pagination = new Pagination(statuses.slice(0), this.render);
-      this.search = new Search($('[data-search]'), statuses.slice(0));
+      this.search = new Search($('[data-search]'), statuses.slice(0), this.filter);
 
       this.statuses = [];
       this.events();
@@ -156,6 +158,14 @@
     StatusGrid.prototype.events = function() {
       // when the window is scrolled, update all the statuses
       $(window).on('scroll', this.update);
+    };
+
+    StatusGrid.prototype.filter = function(statuses) {
+      this.$el.find('.status').hide();
+
+      statuses.forEach(function(status) {
+        $('.status[data-id="'+ status +'"]').show();
+      });
     };
 
     StatusGrid.prototype.render = function(statuses) {
